@@ -1,0 +1,81 @@
+{% extends "Dialect/basic.html" %}
+{% block title%}
+<title>Translated</title>
+{% endblock%}
+{% block body%}
+<div class="container my-3">
+    <!-- <form action="/translated/" method="GET"> -->
+    <div class="form-group">
+        <center>
+            <h1><label for="textarea1" style="color: aliceblue;">Text successfully translated {{u_lang}} into {{t_lang}}</label></h1>
+        </center>
+        <hr>
+        <br>
+        <center class="my-3">
+            <textarea class="form-control" name="text" rows="10" style="margin-top: 20px;">{{res}}</textarea>
+            <!-- <h3 style="color:red;"></h3> -->
+        </center>
+        <select id="voices" class="form-select bg-secondary text-light"></select>
+        <div class="mb-5">
+            <button id="start" class="btn btn-success mt-5 me-3">Start</button>
+            <button id="pause" class="btn btn-warning mt-5 me-3">Pause</button>
+            <button id="resume" class="btn btn-info mt-5 me-3">Resume</button>
+            <button id="cancel" class="btn btn-danger mt-5 me-3">Cancel</button>
+        </div>
+    </div>
+    <!-- </form> -->
+</div>
+{% endblock%}
+{% block script%}
+<script>
+    var speech = new SpeechSynthesisUtterance();
+
+    // Set Speech Language
+    speech.lang = "en";
+
+    var voices = []; // global array of available voices
+
+    window.speechSynthesis.onvoiceschanged = () => {
+        // Get List of Voices
+        voices = window.speechSynthesis.getVoices();
+
+        // Initially set the First Voice in the Array.
+        speech.voice = voices[0];
+
+        // Set the Voice Select List. (Set the Index as the value, which we'll use later when the user updates the Voice using the Select Menu.)
+        var voiceSelect = document.querySelector("#voices");
+        voices.forEach((voice, i) => (voiceSelect.options[i] = new Option(voice.name, i)));
+    };
+
+
+    document.querySelector("#voices").addEventListener("change", () => {
+        // On Voice change, use the value of the select menu (which is the index of the voice in the global voice array)
+        speech.voice = voices[document.querySelector("#voices").value];
+    });
+
+    document.querySelector("#start").addEventListener("click", () => {
+        // Set the text property with the value of the textarea
+        speech.text = document.querySelector("textarea").value;
+
+        // Start Speaking
+        window.speechSynthesis.speak(speech);
+    });
+
+    document.querySelector("#pause").addEventListener("click", () => {
+        // Pause the speechSynthesis instance
+        window.speechSynthesis.pause();
+    });
+
+    document.querySelector("#resume").addEventListener("click", () => {
+        // Resume the paused speechSynthesis instance
+        window.speechSynthesis.resume();
+    });
+
+    document.querySelector("#cancel").addEventListener("click", () => {
+        // Cancel the speechSynthesis instance
+        window.speechSynthesis.cancel();
+    });
+
+</script>
+
+{% endblock%}
