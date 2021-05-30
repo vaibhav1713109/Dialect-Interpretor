@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 import speech_recognition as sr
 from googletrans import Translator
+from .models import ContactUs
 # from googletrans import LANGUAGES 
 # # Create your views here.
 # print(LANGUAGES)
@@ -31,6 +32,7 @@ def translator(request):
     return render(request, 'Dialect/translator.html',prams)
 
 
+
 def translated(request):
     text = request.POST['text']
     lang = request.POST['lang']
@@ -45,22 +47,25 @@ def voice_rec(request):
     # result=translation()
     prams={'languages': language}
     return render(request, 'Dialect/voice_rec.html',prams)
-# def record_audio(request):
-#     r1=sr.Recognizer()
-#     with sr.Microphone() as source:
-#         r1.adjust_for_ambient_noise(source)
-#         print('say somthing')
-#         audio=r1.listen(source)
-#         try:
-#             text=r1.recognize_google(audio)
-#             return text
 
-#         except sr.UnknownValueError:
-#             print('please parden')
+def home_page(request):
+    return render(request, 'Dialect/Menu_DI.html')
 
-#         except sr.RequestError as e:
-#             print('could not get request; {0}'.format(e))
-        
+def contact(request):
+    #return HttpResponse('this is contact page')
+    if request.method=="POST":
+        #print(request)
+        name=request.POST.get('name','')
+        email=request.POST.get('email','')
+        phone=request.POST.get('phone','')
+        desc=request.POST.get('desc','')
+        #print(name,email,phone,desc)
+        contact=ContactUs(username=name,email=email,phone=phone,desc=desc)
+        contact.save()
+    return render(request,"Dialect/contact.html")
+
+def about(request):
+    return render(request,"Dialect/about.html")
 
 def translation(query,lan):
     trans=Translator()

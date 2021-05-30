@@ -1,0 +1,70 @@
+{% extends "Dialect/basic.html" %}
+
+{% block meta%}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{% endblock%}
+
+{% block title%}
+<title>Menu</title>
+{%endblock%}
+{% block style%}
+<style>
+    
+
+    .box {
+        size: 100%;
+        margin: 240px auto;
+        font-size: 30px;
+        font-weight: bold;
+        font-family: lato;
+        text-align: center;
+    }
+
+    .typed {
+        color: black;
+    }
+
+    .box h2 {
+        font-size: 40px;
+        color: #fff;
+        margin: 0;
+        font-family: lato;
+        font-weight: 900;
+        text-transform: uppercase;
+        -webkit-text-stroke: 1px black;
+    }
+
+    #animate {
+        margin: 0;
+    }
+</style>
+{%endblock%}
+{% block body%}
+
+
+<div class="box">
+    <h2 class="static-txt">You can convert <span class="animate" style="color: red;"></span> </dh2>
+</div>
+
+
+{%endblock%}
+{% block script%}
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+<script>
+    var typed = new Typed('.animate', {
+        strings: [
+            "Text to Text",
+            "Voice to Text",
+            "Voice to Voice"
+        ],
+        typeSpeed: 200,
+        backspaceSpeed: 20,
+        backspaceDelay: 800,
+        repeatDelay: 1000,
+        loop: true,
+        autoStart: true,
+        startDelay: 100,
+    });
+
+</script>
+{% endblock%}
