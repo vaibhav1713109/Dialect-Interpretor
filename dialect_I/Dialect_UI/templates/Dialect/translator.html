@@ -4,19 +4,19 @@
 {%endblock%}
 {% block body%}
   <div class="container my-3" >
-    <form action="translated/" method="POST">
+    <form action="/translated/" method="POST">
       {% csrf_token %}
       <div class="form-group">
         <center>
           <h4><label for="textarea1" style="
             margin-top: 20px; color: aliceblue;">Enter text in any language you want</label></h4>
         </center>
-        <textarea class="form-control" id="text1" name="text" rows="10" style="margin-top: 20px;" placeholder="Enter text you want to convert">
-            </textarea>
+        <textarea class="form-control" id="text1" name="text" rows="10" style="margin-top: 20px;" placeholder="Enter text you want to convert"></textarea>
       </div>
       <div class="form-group" style="margin-top: 40px;">
         <center>
-          <h4><label for="language">Choose a Language</label></h4>
+          <h4><label for="language" style="
+           color: aliceblue;">Choose a Language</label></h4>
         </center>
         <select class="form-control" id="language" name="lang" style="margin-top: 20px;">
           <option value="select">Select-</option>
@@ -27,7 +27,8 @@
       </div>
       <br>
       <center>
-        <button type="Submit" class="btn btn-primary btn-lg">Translate</button>
+        <button type="Submit" class="btn btn-primary btn-lg" style="
+        margin-bottom: 20px;">Translate</button>
       </center>
     </form>
   </div>

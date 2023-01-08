@@ -5,49 +5,50 @@
     About
 </title>
 {% endblock %}
+{% block style%}
+<style>
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
+</style>
+{% endblock%}
 {% block body %}
 <main role="main" class="my-3">
 
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
         <div class="container">
-            <h1 class="display-3" style="color: #333352;">Dialect Interpreter</h1>
-            <p style="color: wheat;">This is a template for a simple marketing or informational website. It includes a large callout called a
-                jumbotron and three supporting pieces of content. Use it as a starting point to create something more
-                unique.</p>
-            <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+            <div class="item">
+                <h1 class="display-3" style="color: #fdfdfd;">Dialect Interpreter</h1>
+                <p style="color: wheat;">Dialect Interpretetion is the process by which conversational spoken phrases
+                    are instantly translated and spoken aloud in a second language. This differs from phrase
+                    translation, which is where the system only translates a fixed and finite set of phrases that have
+                    been manually entered into the system. Dialect Interpretetion technology enables speakers of
+                    different languages to communicate. It thus is of tremendous value for humankind in terms of
+                    science, cross-cultural exchange and global business.</p>
+            </div>
+            <div class="item">
+                <h2 style="color: #ffffff;">How it Works</h2>
+                <p style="color: wheat;">A Dialect Interpretetion system would typically integrate the following three
+                    software technologies: automatic speech recognition (ASR), machine translation (MT) and voice
+                    synthesis (TTS).
+
+                    The speaker of language A speaks into a microphone and the speech recognition module recognizes the
+                    utterance. It compares the input with a phonological model, consisting of a large corpus of speech
+                    data from multiple speakers. The input is then converted into a string of words, using dictionary
+                    and grammar of language A, based on a massive corpus of text in language A.
+
+                    The machine translation module then translates this string. Early systems replaced every word with a
+                    corresponding word in language B. Current systems do not use word-for-word translation, but rather
+                    take into account the entire context of the input to generate the appropriate translation. The
+                    generated translation utterance is sent to the speech synthesis module, which estimates the
+                    pronunciation and intonation matching the string of words based on a corpus of speech data in
+                    language B. Waveforms matching the text are selected from this database and the speech synthesis
+                    connects and outputs them.</p>
+            </div>
         </div>
     </div>
-
-    <div class="container">
-        <!-- Example row of columns -->
-        <div class="row">
-            <div class="col-md-4">
-                <h2 style="color: #333352;">Vikas Saxena</h2>
-                <p style="color: wheat;">Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
-                    mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna
-                    mollis euismod. Donec sed odio dui. </p>
-                <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-            </div>
-            <div class="col-md-4">
-                <h2 style="color: #333352;">Yogesh Sharma</h2>
-                <p style="color: wheat;">Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
-                    mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna
-                    mollis euismod. Donec sed odio dui. </p>
-                <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-            </div>
-            <div class="col-md-4">
-                <h2 style="color: #333352;">Utkarsh Goyal</h2>
-                <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula
-                    porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
-                    ut fermentum massa justo sit amet risus.</p>
-                <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-            </div>
-        </div>
-
-        <hr>
-
-    </div> <!-- /container -->
 
 </main>
 

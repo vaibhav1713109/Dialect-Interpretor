@@ -28,14 +28,15 @@
         </center>
         <center>
             <textarea class="form-control" name="text" rows="10" style="margin-top: 20px;"
-                id="h6Elem">Listening..</textarea>
+                id="h6Elem" placeholder="Listening.."></textarea>
         </center>
-        <center><button id="btnListen" class="btn btn-primary" type="button" style="margin-top: 20px;">Listen</button>
+        <center><button id="btnListen" class="btn btn-primary" type="button" style="margin-top: 20px; color: aliceblue;">Listen</button>
         </center>
 
         <div class="form-group" style="margin-top: 40px;">
             <center>
-                <h4><label for="language">Choose a Language</label></h4>
+                <h4><label for="language" style="
+                    color: aliceblue;">Choose a Language</label></h4>
             </center>
             <select class="form-control" id="language" name="lang" style="margin-top: 20px;">
                 <option value="select">Select-</option>
@@ -46,7 +47,8 @@
         </div>
         <br>
         <center>
-            <button type="Submit" class="btn btn-primary btn-lg">Translate</button>
+            <button type="Submit" class="btn btn-primary btn-lg" style="
+            margin-bottom: 20px;">Translate</button>
         </center>
     </div>
 </form>
@@ -80,7 +82,7 @@
 
 
     btnListen.addEventListener('click', function () {
-        h6Elem.textContent = '..Speaking..'
+        h6Elem.placeholder = 'Speaking..'
         recognition.start();
     })
 </script>
